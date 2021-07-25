@@ -1,0 +1,18 @@
+{
+    "recordList":[
+        {
+            "name" : "fruit",
+            "type" : "Expenses",
+            "date" : "25/7/2021",
+            "value": "300",
+            "detail" : "buy tomatoes from market"
+        },
+        {
+            "name" : "salary",
+            "type" : "Income",
+            "date" : "25/7/2021",
+            "value": "3000",
+            "detail" : "January salary"
+        }
+    ]
+}

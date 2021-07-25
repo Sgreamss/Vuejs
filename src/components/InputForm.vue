@@ -9,17 +9,19 @@
                 <input type="text" class="form-control" id="inputName" 
                 v-model="name" placeholder="Record Name" required>
             </div>
+            
             <div class="col-sm-3">
                 <label class="visually-hidden">Type Select</label>
-                <select class="form-select" id="typeSelect" required>
+                <select class="form-select" id="typeSelect" ref="typeSelect" required>
                     <option selected>Choose Type</option>
-                    <option value="1">Income</option>
-                    <option value="2">Expenses</option>
+                    <option value="Income">Income</option>
+                    <option value="Expenses">Expenses</option>
                 </select>
             </div>
+            
             <div class="col-sm-3">
                 <label class="me-3">Date :</label>
-                <input  type="date" id="dateSelect" required>
+                <input  type="date" id="dateSelect" ref="dateSelect" required>
             </div>
         </form>
         
@@ -61,9 +63,23 @@ export default {
     },
     methods: {
         submitForm(){
+            this.type = this.$refs.typeSelect.value;
+            this.date = this.$refs.dateSelect.value;
             
-        }
-    }
+
+            let payload = {
+                name : this.name,
+                type : this.type,
+                date : this.date,
+                value: this.value,
+                detail : this.detail,
+            };
+            this.addRecordList(payload);
+            console.log(payload);
+        },
+        
+    },
+    props: ['addRecordList'],
 }
 </script>
 
